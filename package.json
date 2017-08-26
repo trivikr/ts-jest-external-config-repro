@@ -1,27 +1,14 @@
 {
-  "name": "ts-jest-es2017-debugger-repro",
+  "name": "ts-jest-external-config-repro",
   "version": "1.0.0",
-  "description": "Repro repo for debugger issue with TS target es2017 and ts-jest@20.0.x",
+  "description": "Repro repo for defining external Jest configuration in ts-jest@20.0.x",
   "main": "index.js",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
-    "test": "npm run build && jest"
+    "test1": "npm run build && jest --config ./config/jest.config.json",
+    "test2": "npm run build && jest --config ./config/jest.config.json --rootDir ."
   },
-  "keywords": ["Jest", "TypeScript", "es2017", "ts-jest", "debugger"],
-  "jest": {
-    "collectCoverage": true,
-    "globals": {
-      "ts-jest": {
-        "skipBabel": true
-      }
-    },
-    "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.ts$",
-    "moduleFileExtensions": ["ts", "tsx", "js"],
-    "mapCoverage": true
-  },
+  "keywords": ["Jest", "TypeScript", "ts-jest", "jest", "configuration"],
   "author": "Trivikram Kamat",
   "license": "ISC",
   "devDependencies": {
