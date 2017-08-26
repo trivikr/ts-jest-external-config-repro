@@ -1,10 +1,15 @@
-# ts-jest-es2017-debugger-repro
-Repro repo for debugger issue with TS target es2017 and ts-jest@20.0.x
+# ts-jest-external-config-repro
+Repro repo for defining external Jest configuration in ts-jest@20.0.x
 
 Steps to reproduce:
-* ```yarn``` or ```npm install``` to install dependencies
-* ```npm run test``` to build and run tests, notice that coverage is 100%
-* Open the project in VSCode, go to Debug and run "Debug Tests"
-* Notice that the build task runs and debugger stops one line after **debugger;** statement as shown in the screen recording below
+* `yarn` or `npm install` to install dependencies
+* `npm run test1` will build and run tests, and throw following error:
+```
+● Validation Error:
 
-![Screen recording](./screenRecording.gif)
+  Module <rootDir>/node_modules/ts-jest/preprocessor.js in the transform option was not found.
+
+  Configuration Documentation:
+  https://facebook.github.io/jest/docs/configuration.html
+```
+* `npm run test2` will build and run tests successfully, as `--rootDir` is defined
